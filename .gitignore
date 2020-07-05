@@ -59,3 +59,11 @@ Assets/VRCSDK/
 Assets/VRCSDK.meta
 Assets/VRChat Examples/
 Assets/VRChat Examples.meta
+
+# UdonSharp Assets
+Assets/Gizmos/
+Assets/Gizmos.meta
+Assets/SerializedUdonPrograms.meta
+Assets/SerializedUdonPrograms/
+Assets/UdonSharp.meta
+Assets/UdonSharp/

@@ -42,6 +42,9 @@ Assets/StreamingAssets/crashlytics-build.properties
 # VSCode
 .vscode/
 
+# Editor setting file
+.editorconfig
+
 # private Assets
 Assets/753network/
 Assets/753network.meta

@@ -1,4 +1,4 @@
-
+ï»¿
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -10,17 +10,17 @@ public class NPCMover : UdonSharpBehaviour
 
     private Vector3 _startPosition;
 
-    private Vector3 _beforePosition;    //  ˆê‚Â‘O‚ÌÀ•W
+    private Vector3 _beforePosition;    //  ä¸€ã¤å‰ã®åº§æ¨™
 
     private int _selectedValue;
 
     /// <summary>
-    /// x, z‚Ì’l‚ğ”½“]‚³‚¹‚é‚©‚Ìİ’è’l
+    /// x, zã®å€¤ã‚’åè»¢ã•ã›ã‚‹ã‹ã®è¨­å®šå€¤
     /// </summary>
     private int _reversSetting;
 
     /// <summary>
-    /// –Ú“I’n
+    /// ç›®çš„åœ°
     /// </summary>
     private Vector3 _destination;
 
@@ -59,23 +59,23 @@ public class NPCMover : UdonSharpBehaviour
         {
             Move();
 
-            // –Ú“I’n‚É“’…‚µ‚½‚©
+            // ç›®çš„åœ°ã«åˆ°ç€ã—ãŸã‹
             var currentPosition = transform.position;
             if (Vector3.Distance(currentPosition, _destination) < 0.5)
             {
                 _arrived = true;
-                _beforePosition = currentPosition;  // Œ»İ‚ÌˆÊ’u‚ğ‹L˜^
+                _beforePosition = currentPosition;  // ç¾åœ¨ã®ä½ç½®ã‚’è¨˜éŒ²
                 SetStopAnimation();
             }
         }
-        else // “’…‚µ‚Ä‚¢‚½ê‡
+        else // åˆ°ç€ã—ã¦ã„ãŸå ´åˆ
         {
             _elapsedTime += Time.deltaTime;
 
-            //@‘Ò‚¿ŠÔ‚ğ‰z‚¦‚½‚çŸ‚Ì–Ú“I’n‚ğİ’è
+            //ã€€å¾…ã¡æ™‚é–“ã‚’è¶ŠãˆãŸã‚‰æ¬¡ã®ç›®çš„åœ°ã‚’è¨­å®š
             if (_elapsedTime > _WaitTime)
             {
-                // ƒI[ƒi[‚Í’l‚ğ¶¬‚µA‚»‚êˆÈŠO‚ÍƒI[ƒi[‚Ì’l‚ª”zM‚³‚ê‚é‚Ü‚Å‘Ò‚Â
+                // ã‚ªãƒ¼ãƒŠãƒ¼ã¯å€¤ã‚’ç”Ÿæˆã—ã€ãã‚Œä»¥å¤–ã¯ã‚ªãƒ¼ãƒŠãƒ¼ã®å€¤ãŒé…ä¿¡ã•ã‚Œã‚‹ã¾ã§å¾…ã¤
                 if (Networking.IsOwner(Networking.LocalPlayer, gameObject))
                 {
                     CreateRandomValue();
@@ -98,7 +98,7 @@ public class NPCMover : UdonSharpBehaviour
 
     private void Move()
     {
-        if (Physics.CheckSphere(transform.position, 0.1f)) //Ú’n”»’è
+        if (Physics.CheckSphere(transform.position, 0.1f)) //æ¥åœ°åˆ¤å®š
         {
             _velocity = Vector3.zero;
             SetWalkAnimation();
@@ -113,20 +113,20 @@ public class NPCMover : UdonSharpBehaviour
 
 
     /// <summary>
-    /// Ÿ‚Ì–Ú“I’n‚ğİ’è
+    /// æ¬¡ã®ç›®çš„åœ°ã‚’è¨­å®š
     /// </summary>
     private void SetDestination()
     {
-        if (_returnPosition)    // •Ç‚É‚Ô‚Â‚©‚Á‚½‚ç‘O‚ÌˆÊ’u‚É–ß‚é
+        if (_returnPosition)    // å£ã«ã¶ã¤ã‹ã£ãŸã‚‰å‰ã®ä½ç½®ã«æˆ»ã‚‹
         {
             _destination = _beforePosition;
             _returnPosition = false;
         }
         else
         {
-            // —”’l‚ğg‚Á‚Ä”z—ñ‚©‚çƒ‰ƒ“ƒ_ƒ€‚É’l‚ğæ‚èo‚µAŸ‚Ì–Ú“I’n‚Æ‚µ‚Äİ’è
+            // ä¹±æ•°å€¤ã‚’ä½¿ã£ã¦é…åˆ—ã‹ã‚‰ãƒ©ãƒ³ãƒ€ãƒ ã«å€¤ã‚’å–ã‚Šå‡ºã—ã€æ¬¡ã®ç›®çš„åœ°ã¨ã—ã¦è¨­å®š
             var vector = _array[_selectedValue];
-            switch (_reversSetting) // x, z‚Ì’l‚ğ”½“]‚³‚¹‚é‚©
+            switch (_reversSetting) // x, zã®å€¤ã‚’åè»¢ã•ã›ã‚‹ã‹
             {
                 // 0 -> (x, 0, y)
                 // 1 -> (x, 0, -y)
@@ -154,7 +154,7 @@ public class NPCMover : UdonSharpBehaviour
 
 
     /// <summary>
-    /// ’l‚ª¶¬A”zM‚³‚ê‚½‚±‚Æ‚ğ’Ê’m‚·‚é
+    /// å€¤ãŒç”Ÿæˆã€é…ä¿¡ã•ã‚ŒãŸã“ã¨ã‚’é€šçŸ¥ã™ã‚‹
     /// </summary>
     public void finishValuesSetting()
     {
@@ -163,12 +163,12 @@ public class NPCMover : UdonSharpBehaviour
 
 
     /// <summary>
-    /// ƒI[ƒi[‚Ì‚İ—”‚ğ¶¬‚³‚¹A’l‚¾‚¯“¯Šú
+    /// ã‚ªãƒ¼ãƒŠãƒ¼ã®ã¿ä¹±æ•°ã‚’ç”Ÿæˆã•ã›ã€å€¤ã ã‘åŒæœŸ
     /// </summary>
     private void CreateRandomValue()
     {
         var randValue = Random.Range(0, _array.Length);
-        // ƒ‰ƒ“ƒ_ƒ€‚É‘I‚Î‚ê‚½’l‚ğ“¯Šú‚³‚¹‚é
+        // ãƒ©ãƒ³ãƒ€ãƒ ã«é¸ã°ã‚ŒãŸå€¤ã‚’åŒæœŸã•ã›ã‚‹
         switch (randValue)
         {
             case 0:
@@ -209,7 +209,7 @@ public class NPCMover : UdonSharpBehaviour
     }
 
     /// <summary>
-    /// x,z‚Ì’l‚ğ”½“]‚³‚¹‚é‚©‚ğƒ‰ƒ“ƒ_ƒ€‚Éİ’è‚·‚é(ƒI[ƒi[‚Ì‚İ)
+    /// x,zã®å€¤ã‚’åè»¢ã•ã›ã‚‹ã‹ã‚’ãƒ©ãƒ³ãƒ€ãƒ ã«è¨­å®šã™ã‚‹(ã‚ªãƒ¼ãƒŠãƒ¼ã®ã¿)
     /// </summary>
     private void SelectReversValueOrNot()
     {
@@ -242,7 +242,7 @@ public class NPCMover : UdonSharpBehaviour
     }
 
 
-    #region ˆÈ‰º’lİ’è—pƒƒ\ƒbƒh
+    #region ä»¥ä¸‹å€¤è¨­å®šç”¨ãƒ¡ã‚½ãƒƒãƒ‰
 
     public void SyncZeroValue()
     {
@@ -293,7 +293,7 @@ public class NPCMover : UdonSharpBehaviour
     #endregion
 
 
-    #region ˆÈ‰º’l”½“]İ’è—pƒƒ\ƒbƒh
+    #region ä»¥ä¸‹å€¤åè»¢è¨­å®šç”¨ãƒ¡ã‚½ãƒƒãƒ‰
 
     public void SyncZeroSetting()
     {
@@ -319,7 +319,7 @@ public class NPCMover : UdonSharpBehaviour
     }
     #endregion
 
-    #region ˆÈ‰ºƒAƒjƒ[ƒVƒ‡ƒ“—pƒƒ\ƒbƒh
+    #region ä»¥ä¸‹ã‚¢ãƒ‹ãƒ¡ãƒ¼ã‚·ãƒ§ãƒ³ç”¨ãƒ¡ã‚½ãƒƒãƒ‰
 
     public void SetStopAnimation()
     {
@@ -334,7 +334,7 @@ public class NPCMover : UdonSharpBehaviour
     #endregion
 
 
-    // ƒRƒ‰ƒCƒ_[”»’è
+    // ã‚³ãƒ©ã‚¤ãƒ€ãƒ¼åˆ¤å®š
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("EnterCollision");
@@ -342,7 +342,7 @@ public class NPCMover : UdonSharpBehaviour
         {
             Debug.Log("Arrived");
             _arrived = true;
-            _returnPosition = true;         // ‚Í‚Ü‚è–h~
+            _returnPosition = true;         // ã¯ã¾ã‚Šé˜²æ­¢
             SetStopAnimation();
         }
     }

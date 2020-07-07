@@ -1,4 +1,4 @@
-﻿
+
 using UdonSharp;
 using UnityEngine;
 using VRC.SDKBase;
@@ -36,7 +36,7 @@ public class NPCMover : UdonSharpBehaviour
 
     private bool _valuesSetted = false;
 
-    public int[] _array = new int[8] { 1, 2, 5, 7, -2, -3, -4, -8 };
+    public int[] _array = new int[8] { 1, 2, 3, 4, 5, 6, 7, 8 };
 
     public float _WalkSpeed = 1.0f;
 
